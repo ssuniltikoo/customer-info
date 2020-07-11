@@ -8,19 +8,21 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/customer/")
-
 public class CustomerInfoController {
 
     @GetMapping(value = "info/{num}")
     public @ResponseBody
     ResponseEntity<String> getCustomerinfo(@PathVariable String num) {
-        //return "customer info for id :"+num;
+        System.out.println("customer request processed for " + num);
         String cust = "hello cust from cust id " + num;
         return new ResponseEntity<>(cust, HttpStatus.OK);
     }
 
-    @RestController
-
-    public static class DateTime {
+    @GetMapping(value = "/")
+    public String getinfo() {
+        System.out.println("request processing ");
+        return "hello";
     }
+
+
 }

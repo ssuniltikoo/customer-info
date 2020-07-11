@@ -1,6 +1,6 @@
 FROM openjdk:8-jdk-alpine
-RUN addgroup -S spring && adduser -S spring -G spring
-USER spring:spring
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+COPY target/customer-info-1.0-SNAPSHOT.jar /app/
+RUN chown nobody /app/customer-info-1.0-SNAPSHOT.jar && chmod +x /app/customer-info-1.0-SNAPSHOT.jar
+USER 99
+EXPOSE 8085
+CMD java $JAVA_OPTS -jar /app/customer-info-1.0-SNAPSHOT.jar

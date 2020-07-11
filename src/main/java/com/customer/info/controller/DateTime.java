@@ -12,17 +12,16 @@ import java.time.OffsetDateTime;
 public class DateTime {
 
     @GetMapping("/localdatetime")
-    public String getLocalDateTime(){
+    public String getLocalDateTime() {
         LocalDateTime localDateTime = LocalDateTime.now();
-        return  localDateTime.toString();
+        return localDateTime.toString();
         //return "date";
     }
 
 
     @GetMapping("/offsetdatetime")
-    public String getOffsetDateTime(){
+    public String getOffsetDateTime() {
         OffsetDateTime offsetDateTime = OffsetDateTime.now();
-        return  offsetDateTime.toString();
-
+        return offsetDateTime.toString();
     }
 }
